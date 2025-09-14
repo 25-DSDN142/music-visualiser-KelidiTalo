@@ -5,91 +5,239 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
-  
-let MainBubble_Y = 640;
 
 
-stroke(60, 90, 250)
-strokeWeight(120)
-line(10, 640, 480, 0)
 
-stroke(60, 90, 250)
-strokeWeight(120)
-line(20, 640, 480, 130)
+//UTILITY VARIABLES
+let BackBubbleX = 840;
+let MainBubble_Y = 720;
+let MainBubbleMap = map(420 + vocal * 5, 0, 100, 10, 100);
+let BackgroundBubble = map(240 + vocal * 4, 0, 100, 25, 110);
+let MiniBubblesBass = map(40-bass, 0, 100, 40, 90)
+let MiniBubblesOther = map(70 +other, 0, 100, 20, 90)
+//UTILITY VARIABLES
 
-//Bottom Right Bubble
-fill(260, 230, 5);
-strokeWeight(0)
-stroke(260, 165, 0)
-ellipse(0, MainBubble_Y, other * 7)
+//COLOR VARIABLES
+let Yellow = color(260, 205, 0)
+let LightYellow = color(260, 230, 5)
+let DarkYellow = color(255, 187, 0)
+let Purple = color(194, 0, 224)
+let LightPurple = color(255, 117, 230)
+let DarkRed = color(209, 24, 0)
+let FireOrange = color(255, 68, 0)
+let LightOrange = color(255, 165, 0)
+let DarkOrange = color(227, 117, 0)
+let Cyan = color(0, 225, 255)
+let Blue = color(0, 145, 255)
+let Green = color(53, 227, 0)
+let DarkGreen = color(59, 179, 0)
+//COLOR VARIABLES
 
-fill(0, 225, 255);
-strokeWeight(5.4)
-stroke(255, 165, 0)
-ellipse(0, MainBubble_Y, other * 6.6)
-
-fill(150, 0, 170);
+//BACKGROUND BUBBLES
+fill(DarkYellow);
+strokeWeight(25)
+stroke(DarkYellow)
+ellipse(360, 350, 170 + drum)
+fill(Yellow);
 strokeWeight(10)
-stroke(280, 20, 0)
-ellipse(0, MainBubble_Y, other * 6)
+stroke(DarkYellow)
+ellipse(790, 40, 400 + drum)
+fill(DarkYellow);
+strokeWeight(25)
+stroke(DarkYellow)
+ellipse(790, 40, 170 + drum)
+fill(Yellow);
+strokeWeight(25)
+stroke(DarkYellow)
+ellipse(950, 750, 730 + drum)
+fill(DarkYellow);
+strokeWeight(0)
+stroke(0)
+ellipse(950, 750, 600 + drum)
+fill(Yellow);
+strokeWeight(9)
+stroke(DarkYellow)
+ellipse(0, 0, 230 + drum)
+fill(Yellow);
+strokeWeight(15)
+stroke(DarkYellow)
+ellipse(0, 0, 180 + drum)
+fill(DarkYellow);
+strokeWeight(0)
+stroke(0)
+ellipse(0, 0, 130 + drum)
+//BACKGROUND BUBBLES
 
+//BACKGROUND STREAK
+stroke(LightYellow)
+strokeWeight(80)
+line(0,257,1280,720)
+stroke(LightYellow)
+strokeWeight(80)
+line(0,335,1280,720)
+//BACKGROUND STREAK
+
+//STREAK COLORS
+stroke(LightYellow)
+strokeWeight(30)
+line(0,375,1280,770)
+stroke(Cyan)
+strokeWeight(15)
+line(0,369,1280,760)
+stroke(LightOrange)
+strokeWeight(8)
+line(0,358,1280,755)
+stroke(FireOrange)
+strokeWeight(12)
+line(0,347,1280,745)
+stroke(Blue)
+strokeWeight(20)
+line(0,270,1300,720)
+stroke(LightPurple)
+strokeWeight(10)
+line(0,255,1300,705)
+stroke(Purple)
+strokeWeight(10)
+line(0,245,1300,695)
+stroke(DarkGreen)
+strokeWeight(10)
+line(0,235,1300,685)
+stroke(Green)
+strokeWeight(13)
+line(0,223,1300,676)
+//STREAK COLORS
+
+//CENTRE BACKGROUND BUBBLE
+fill(Purple);
+strokeWeight(14)
+stroke(LightYellow)
+ellipse(BackBubbleX, 310, BackgroundBubble);
+fill(LightYellow);
+strokeWeight(6)
+stroke(LightPurple)
+ellipse(BackBubbleX, 310, BackgroundBubble-50);
+fill(DarkRed);
+strokeWeight(10)
+stroke(FireOrange)
+ellipse(BackBubbleX, 310, BackgroundBubble-100);
+fill(0);
+strokeWeight(10)
+stroke(Cyan)
+ellipse(BackBubbleX, 310, BackgroundBubble-140);
+//CENTRE BACKGROUND BUBBLE
+
+//RAINBOW STREAK BACKGROUND
+stroke(LightYellow)
+strokeWeight(100)
+line(0,640, 1400, -300)
+stroke(LightYellow)
+strokeWeight(100)
+line(0,640, 1200, -30)
+stroke(LightYellow)
+strokeWeight(80)
+line(0, 740, 1280, 0)
+stroke(LightYellow)
+strokeWeight(80)
+line(-140, 720, 1280, -260)
+//RAINBOW STREAK BACKGROUND
+
+//RAINBOW STREAK COLOURS
+stroke(DarkGreen)
+strokeWeight(25)
+line(90, 720, 1300, 20)
+stroke(Green)
+strokeWeight(12)
+line(80, 720, 1290, 20)
+stroke(LightOrange)
+strokeWeight(25)
+line(70, 710, 1270, 10)
+stroke(DarkOrange)
+strokeWeight(25)
+line(60, 700, 1270, -10)
+stroke(Cyan)
+strokeWeight(19)
+line(30, 650, 1170, -80)
+stroke(Blue)
+strokeWeight(10)
+line(30, 640, 1130, -72)
+stroke(DarkRed)
+strokeWeight(10)
+line(30, 630, 1100, -65)
+stroke(FireOrange)
+strokeWeight(18)
+line(30, 620, 1070, -60)
+stroke(Purple)
+strokeWeight(23)
+line(0, 620, 1040, -65)
+stroke(LightPurple)
+strokeWeight(12)
+line(0, 615, 1040, -78)
+//RAINBOW STREAK COLORS
+
+//BOTTOM LEFT BUBBLE
+fill(LightYellow);
+strokeWeight(0)
+stroke(0)
+ellipse(0, MainBubble_Y, MainBubbleMap)
+fill(Cyan);
+strokeWeight(5.4)
+stroke(LightOrange)
+ellipse(0, MainBubble_Y, MainBubbleMap-60)
+fill(Purple);
+strokeWeight(10)
+stroke(FireOrange)
+ellipse(0, MainBubble_Y, MainBubbleMap-105)
 fill(0);
 strokeWeight(25)
-stroke(280, 240, 0)
-ellipse(0, MainBubble_Y, other * 5);
-
+stroke(LightYellow)
+ellipse(0, MainBubble_Y, MainBubbleMap-160);
 fill(0);
 strokeWeight(10)
-stroke(90, 188, 5)
-ellipse(0, MainBubble_Y, other * 4.8);
+stroke(Green)
+ellipse(0, MainBubble_Y, MainBubbleMap-170);
+//BOTTOM LEFT BUBBLE
 
-//rect(0, 50, 120 + other * 4.5, 0, 8);
-
-
-console.log(mouseX, mouseY);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//fill(60, 60, 800);
-//ellipse(Y_location, 300, 40 + drum * 4);
-
-//fill(10, 10, 10);
-//ellipse(Y_location, 300, 10 + vocal * 4);
-
-
-//fill(250, 80, 0);
-//rect(Y_location, 50, 120 + bass * 4.5, 30, 8);
-
-//for(let i = 0; i < 5; i++){
-//let circleheight = 110 * i -bass;
-//fill(50, 50, 50)
-//ellipse(100, 150 + circleheight, 70, 70)
-
-
+//SMALL BUBBLES
+fill(0)
+strokeWeight(6)
+stroke(LightOrange)
+ellipse(450,380,MiniBubblesOther)
+fill(0)
+strokeWeight(3)
+stroke(LightOrange)
+ellipse(540,270,MiniBubblesOther -50)
+fill(Yellow)
+strokeWeight(9)
+stroke(Blue)
+ellipse(400,120,70 +bass)
+fill(0)
+strokeWeight(6)
+stroke(0)
+ellipse(400,120,10 +bass)
+fill(Yellow)
+strokeWeight(5)
+stroke(Blue)
+ellipse(290,45,15 +bass)
+fill(Yellow)
+strokeWeight(14)
+stroke(Green)
+ellipse(1150,108,50 +bass)
+fill(Yellow)
+strokeWeight(2.5)
+stroke(Green)
+ellipse(1150,108,5 +bass)
+fill(Yellow)
+strokeWeight(5)
+stroke(LightPurple)
+ellipse(140,210,MiniBubblesBass)
+fill(Yellow)
+strokeWeight(7)
+stroke(LightPurple)
+ellipse(980,620,MiniBubblesBass +110)
+fill(DarkYellow)
+strokeWeight(12)
+stroke(Purple)
+ellipse(980,620,MiniBubblesBass +90)
+//SMALL BUBBLES
 }
+
